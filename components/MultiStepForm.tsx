@@ -296,9 +296,9 @@ const defaultValues: FormDataType = {
   service: "",
   problem: "",
   additionalDetails: "",
-  address: "",
-  date: null,
-  time: "",
+  address: "77 Sission Street, Fort Gale, Mthatha, Eastern Cape, South Africa",
+  date: new Date(),
+  time: "500PM",
   image: null,
 };
 
@@ -422,7 +422,7 @@ export function MultiStepForm({ initialCategory }: MultiStepFormProps) {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory || "");
   const [selectedService, setSelectedService] = useState("");
   const [selectedProblem, setSelectedProblem] = useState("");
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(defaultValues.date);
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormDataType>({
@@ -723,6 +723,11 @@ export function MultiStepForm({ initialCategory }: MultiStepFormProps) {
     }
   };
 
+  // Keep selectedDate and formData.date in sync
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, date: selectedDate }));
+  }, [selectedDate]);
+
   const renderStepIndicator = () => (
     <div className="w-full max-w-4xl mb-8">
       <div className="flex justify-between">
@@ -919,6 +924,10 @@ export function MultiStepForm({ initialCategory }: MultiStepFormProps) {
             slots.push(`${hour12}:${m} ${ampm}`);
             minute += 30;
             if (minute === 60) { hour++; minute = 0; }
+          }
+          // Ensure 5:00 PM is included
+          if (!slots.includes('5:00 PM')) {
+            slots.push('5:00 PM');
           }
           return slots;
         };
