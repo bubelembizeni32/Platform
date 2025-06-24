@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { MobileMenu } from "@/components/mobile-menu"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 interface SiteHeaderProps {
   variant?: 'default' | 'simple'
@@ -91,6 +92,8 @@ export function SiteHeader({ variant = 'default' }: SiteHeaderProps) {
         </div>
         <div className="flex items-center gap-4">
           <div className="hidden md:flex items-center gap-4">
+            {/* Theme toggle always visible on desktop */}
+            <ThemeToggle />
             {isAuthenticated ? (
               <>
                 {variant === 'default' && (

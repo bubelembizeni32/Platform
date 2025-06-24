@@ -78,6 +78,10 @@
   animation: scroll-x 15s linear infinite;
 }
 
+.gradient-bg-light {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 50%, #d6eeff 100%);
+}
+
 .gradient-bg-dark {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
 }
