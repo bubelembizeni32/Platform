@@ -25,7 +25,6 @@ import {
   Sparkles,
 } from "lucide-react"
 import { HorizontalScrollBackground } from "@/components/horizontal-scroll-background"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { MobileMenu } from "@/components/mobile-menu"
 import { FadeInSection } from "@/components/fade-in-section"
 import { ContactForm } from "@/components/contact-form"

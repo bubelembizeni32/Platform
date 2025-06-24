@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
 
 interface MobileMenuProps {
   links: {
@@ -97,7 +96,6 @@ export function MobileMenu({ links, providerLink }: MobileMenuProps) {
           <div className="mt-auto p-4 border-t border-white/10">
             <div className="flex items-center justify-between">
               <span className="text-sm text-white/70">Switch theme</span>
-              <ThemeToggle />
             </div>
           </div>
         </div>
